@@ -7,7 +7,6 @@
         <table class="table table-dark">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
                     <th scope="col">DDD</th>
                     <th scope="col">Telefone</th>
                     <th scope="col">Ações</th>
@@ -16,7 +15,6 @@
             <tbody>
                 @foreach ($contato as $c)
                     <tr>
-                        <th scope="row">{{ $c->pk_telefone }}</th>
                         <td>{{ $c->ddd }}</td>
                         <td>{{ $c->telefone }}</td>
                         <td>

@@ -13,7 +13,7 @@
     @endif
 
 
-    <form name="formCadEmpresa" id="formCadEmpresa" method="post" class="row g-3 mx-4">
+    <form name="formCadEmpresa" id="formCadEmpresa" method="post" action={{ url('/empresa') }} class="row g-3 mx-4">
         @csrf
         <div class="col-12">
             <label for="inputNome" class="form-label">Razão Social</label>
