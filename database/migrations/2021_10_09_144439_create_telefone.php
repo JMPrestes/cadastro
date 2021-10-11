@@ -18,7 +18,8 @@ class CreateTelefone extends Migration
             $table->string('ddd', 2);
             $table->string('telefone', 10);
             $table->integer('fk_cliente')->unsigned();
-            $table->foreign('fk_cliente')->references('pk_cliente')->on('tb_cliente');
+            $table->foreign('fk_cliente')->references('pk_cliente')->on('tb_cliente')->onDelete('cascade')->onUpdate('cascade');
+            $table->timestamps();
         });
     }
 

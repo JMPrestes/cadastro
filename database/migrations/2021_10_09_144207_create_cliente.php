@@ -17,14 +17,17 @@ class CreateCliente extends Migration
             $table->increments('pk_cliente');
             $table->string('nome', 100);
             $table->string('cpf_cnpj', 14);
-            $table->date('data_nasc');
+            $table->date('data_nasc')->nullable();
+            $table->string('rg', 15)->nullable();
             $table->string('email', 100);
             $table->string('cep', 8);
             $table->string('endereco', 80);
             $table->string('numero', 6);
-            $table->dateTime('data_inc');
+            $table->string('cidade', 50);
+            $table->string('estado', 2);
             $table->integer('fk_empresa')->unsigned();
-            $table->foreign('fk_empresa')->references('pk_empresa')->on('tb_empresa');
+            $table->foreign('fk_empresa')->references('pk_empresa')->on('tb_empresa')->onDelete('cascade')->onUpdate('cascade');
+            $table->timestamps();
         });
     }
 
