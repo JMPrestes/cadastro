@@ -1,5 +1,7 @@
 @extends('templates.template')
 
+
+
 @section('content')
     <h1 class="text-center">Clientes</h1>
     </hr>
@@ -30,7 +32,7 @@
                         <th scope="row">{{ $c->pk_cliente }}</th>
                         <td>{{ $c->nome }}</td>
                         <td>{{ $c->cpf_cnpj }}</td>
-                        <td>{{ date('d/m/Y', strtotime($c->data_nasc)) }}</td>
+                        <td>{{ !is_null($c->data_nasc) ? date('d/m/Y', strtotime($c->data_nasc)) : $c->data_nasc }}</td>
                         <td>{{ $c->rg }}</td>
                         <td>{{ $c->email }}</td>
                         <td>{{ $c->cep }}</td>
