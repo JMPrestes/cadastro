@@ -4,8 +4,71 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f97a768c9b8406abe79d209236c1c827",
+    "content-hash": "9f8a925a0eb4825e8b29152097bfd070",
     "packages": [
+        {
+            "name": "amitavroy/laravel-sort-and-filter",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/amitavroy/laravel-sort-and-filter.git",
+                "reference": "355e8f5898bd03c38d06081a19ffd18fbef76a5d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/amitavroy/laravel-sort-and-filter/zipball/355e8f5898bd03c38d06081a19ffd18fbef76a5d",
+                "reference": "355e8f5898bd03c38d06081a19ffd18fbef76a5d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "orchestra/testbench": "^5.0",
+                "phpunit/phpunit": "^9.0",
+                "psalm/plugin-laravel": "^1.2",
+                "vimeo/psalm": "^3.11"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Amitav\\SortAndFilter\\SortAndFilterServiceProvider"
+                    ],
+                    "aliases": {
+                        "Skeleton": "Amitav\\SortAndFilter\\SkeletonFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Amitav\\SortAndFilter\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Amitav Roy",
+                    "email": "reachme@amitavroy.com",
+                    "homepage": "https://amitavroy.com",
+                    "role": "Developer"
+                }
+            ],
+            "homepage": "https://github.com/amitavroy/laravel-sort-and-filter",
+            "keywords": [
+                "amitavroy",
+                "laravel-sort-and-filter"
+            ],
+            "support": {
+                "issues": "https://github.com/amitavroy/laravel-sort-and-filter/issues",
+                "source": "https://github.com/amitavroy/laravel-sort-and-filter/tree/master"
+            },
+            "time": "2020-06-28T16:54:30+00:00"
+        },
         {
             "name": "asm89/stack-cors",
             "version": "v2.0.3",
