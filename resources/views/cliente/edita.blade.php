@@ -22,6 +22,7 @@
     <form name="formEdit" id="formEdit" method="post" action="{{ url("/cliente/$cliente->pk_cliente") }}"
         class="row g-3 mx-4">
         @csrf
+        @method('PUT')
         <input type="hidden" name="pk_cliente" value="{{ $cliente->pk_cliente }}">
         <div class="col-12">
             <label for="inputNome" class="form-label">Nome</label>

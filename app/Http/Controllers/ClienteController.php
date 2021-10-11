@@ -55,17 +55,12 @@ class ClienteController extends Controller
      */
     public function store(ClienteRequest $request)
     {
-        if(!isset($request->cadastro)){
-            $verCad = 'cpf';
-        } else {
-            $verCad = $request->cadastro;
-        }
         $cliente = $this->objCliente;
         $empresa = $this->objEmpresa->all();
         $verEmpresa = $this->objEmpresa->find($request->fk_empresa);
         $age = Carbon::parse($request->data_nasc)->diff(Carbon::now())->y;
 
-        if ($cliente->validar_cpf($request->cpf_cnpj) && $verCad == 'cpf' && $verEmpresa->uf == 'PR' && $age < 18) {
+        if ($cliente->validar_cpf($request->cpf_cnpj) && $request->cadastro == 'cpf' && $verEmpresa->uf == 'PR' && $age < 18) {
             $invalido = "Menores de idade não podem se cadastrar em empresas do Paraná";
             return view('cliente.cadastra', compact('invalido', 'empresa'));
         } else {
@@ -121,7 +116,33 @@ class ClienteController extends Controller
      */
     public function update(ClienteRequest $request, $id)
     {
-        //
+        $atual = $this->objCliente;
+        $cliente = $atual->find($id);
+        $empresa = $this->objEmpresa->all();
+        $verEmpresa = $this->objEmpresa->find($request->fk_empresa);
+        $age = Carbon::parse($request->data_nasc)->diff(Carbon::now())->y;
+
+        if ($atual->validar_cpf($request->cpf_cnpj) && $request->cadastro == 'cpf' && $verEmpresa->uf == 'PR' && $age < 18) {
+            $invalido = "Menores de idade não podem se cadastrar em empresas do Paraná";
+            return view('cliente.edita', compact('invalido', 'cliente', 'empresa'));
+        } else {
+            $cad = $atual->where(['id'=>$id])->update([
+                'nome' => $request->nome,
+                'cpf_cnpj' => $request->cpf_cnpj,
+                'data_nasc' => $request->data_nasc,
+                'rg' => $request->rg,
+                'email' => $request->email,
+                'cep' => $request->cep,
+                'endereco' => $request->endereco,
+                'numero' => $request->numero,
+                'cidade' => $request->cidade,
+                'estado' => $request->estado,
+                'fk_empresa' => $request->fk_empresa,
+            ]);
+            if ($cad) {
+                return redirect('/');
+            }
+        } 
     }
 
     /**

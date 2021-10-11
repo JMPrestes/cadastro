@@ -20,6 +20,7 @@ Route::get('/', [ClienteController::class, 'index']);
 Route::get('/cliente/create', [ClienteController::class, 'create']);
 Route::get('/cliente/{id}/edit', [ClienteController::class, 'edit']);
 Route::post('/', [ClienteController::class, 'store']);
+Route::put('/cliente/{id}', [ClienteController::class, 'update']);
 
 Route::get('/empresa', [EmpresaController::class, 'index']);
 Route::get('/empresa/create', [EmpresaController::class, 'create']);
