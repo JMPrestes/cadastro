@@ -5,7 +5,7 @@
     </hr>
     <div class="text-center col-8 m-auto">
         @csrf
-        <input type="hidden" id="direct" name="{{ $contato[0]->cliente_id }}">
+        <input type="hidden" id="direct" name="{{ $cliente->id }}">
         <table class="table table-dark">
             <thead>
                 <tr>
@@ -28,7 +28,6 @@
                             </a>
                         </td>
                     </tr>
-
                 @endforeach
             </tbody>
         </table>
