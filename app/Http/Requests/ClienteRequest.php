@@ -33,7 +33,7 @@ class ClienteRequest extends FormRequest
             'endereco' => 'required|string',
             'numero' => 'required|string',
             'cidade' => 'required|string',
-            'fk_empresa' => 'required|numeric',
+            'empresa_id' => 'required|numeric',
         ];
     }
 }

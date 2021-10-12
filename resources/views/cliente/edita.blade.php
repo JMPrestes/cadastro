@@ -19,11 +19,10 @@
     @endif
 
 
-    <form name="formEdit" id="formEdit" method="post" action="{{ url("/cliente/$cliente->pk_cliente") }}"
-        class="row g-3 mx-4">
+    <form name="formEdit" id="formEdit" method="post" action="{{ url("/cliente/$cliente->id") }}" class="row g-3 mx-4">
         @csrf
         @method('PUT')
-        <input type="hidden" name="pk_cliente" value="{{ $cliente->pk_cliente }}">
+        <input type="hidden" name="id" value="{{ $cliente->id }}">
         <div class="col-12">
             <label for="inputNome" class="form-label">Nome</label>
             <input type="text" class="form-control" id="inputNome" name="nome" value="{{ $cliente->nome }}"
@@ -84,10 +83,10 @@
         </div>
         <div class="col-md-4">
             <label for="inputCompany" class="form-label">Empresa</label>
-            <select class="form-select" id="inputCompany" name="fk_empresa">
+            <select class="form-select" id="inputCompany" name="empresa_id">
                 <option value="0">Empresa em que trabalha...</option>
                 @foreach ($empresa as $e)
-                    <option value="{{ $e->pk_empresa }}" @if ($cliente->fk_empresa == $e->pk_empresa)
+                    <option value="{{ $e->id }}" @if ($cliente->empresa_id == $e->id)
                         selected
                 @endif
                 >{{ $e->razao_social }}</option>

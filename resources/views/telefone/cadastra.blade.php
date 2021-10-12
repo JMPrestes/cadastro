@@ -14,7 +14,7 @@
 
     <form name="formCadTel" id="formCadTel" method="post" action={{ url('/telefone') }} class="row g-3 mx-4">
         @csrf
-        <input type="hidden" name="fk_cliente" value="{{ $cliente }}">
+        <input type="hidden" name="cliente_id" value="{{ $cliente }}">
         <div class="col-2">
             <label for="cidade" class="form-label">DDD</label>
             <input type="text" class="form-control" id="cidade" name="ddd" placeholder="DDD" required>

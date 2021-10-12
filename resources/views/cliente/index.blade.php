@@ -26,10 +26,10 @@
             <tbody>
                 @foreach ($cliente as $c)
                     @php
-                        $empresa = $c->find($c->pk_cliente)->RelEmpresa;
+                        $empresa = $c->find($c->id)->RelEmpresa;
                     @endphp
                     <tr>
-                        <th scope="row">{{ $c->pk_cliente }}</th>
+                        <th scope="row">{{ $c->id }}</th>
                         <td>{{ $c->nome }}</td>
                         <td>{{ $c->cpf_cnpj }}</td>
                         <td>{{ !is_null($c->data_nasc) ? date('d/m/Y', strtotime($c->data_nasc)) : $c->data_nasc }}</td>
@@ -40,14 +40,14 @@
                         <td>{{ $c->cidade }}/{{ $c->estado }}</td>
                         <td>{{ $empresa->razao_social }}</td>
                         <td>
-                            <a href="/telefone/list/{{ $c->pk_cliente }}">
+                            <a href="/telefone/list/{{ $c->id }}">
                                 <button class="btn btn-dark">Listar Contatos</button>
                         </td>
                         <td>
-                            <a href="/cliente/{{ $c->pk_cliente }}/edit">
+                            <a href="/cliente/{{ $c->id }}/edit">
                                 <button class="btn btn-primary">Editar</button>
                             </a>
-                            <a href="/cliente/delete/{{ $c->pk_cliente }}">
+                            <a href="/cliente/delete/{{ $c->id }}">
                                 <button class="btn btn-danger">Deletar</button>
                             </a>
                         </td>

@@ -13,18 +13,18 @@
     @endif
 
 
-    <form name="formCadEmpresa" id="formCadEmpresa" method="post" action="{{ url("/empresa/$empresa->pk_empresa") }}"
+    <form name="formCadEmpresa" id="formCadEmpresa" method="post" action="{{ url("/empresa/$empresa->id") }}"
         class="row g-3 mx-4">
         @csrf
         @method('PUT')
         <div class="col-12">
             <label for="inputNome" class="form-label">Razão Social</label>
-            <input type="text" class="form-control" id="inputNome" name="razao_social" value={{ $empresa->razao_social }}
-                placeholder="Seu nome aqui..." required>
+            <input type="text" class="form-control" id="inputNome" name="razao_social"
+                value="{{ $empresa->razao_social }}" placeholder="Seu nome aqui..." required>
         </div>
         <div class="col-10">
             <label for="inputCnpj" class="form-label">CNPJ</label>
-            <input type="text" class="form-control" id="inputCnpj" name="cnpj" value={{ $empresa->cnpj }}
+            <input type="text" class="form-control" id="inputCnpj" name="cnpj" value="{{ $empresa->cnpj }}"
                 placeholder="Seu CNPJ..." required>
         </div>
         <div class="col-2">
@@ -33,7 +33,7 @@
                 required>
         </div>
         <div class="col-12">
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <button type="submit" class="btn btn-primary">Editar</button>
         </div>
     </form>
 

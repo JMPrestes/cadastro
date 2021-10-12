@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cliente extends Model
 {
-    protected $table = 'tb_cliente';
-    protected $primaryKey = 'pk_cliente';
+    protected $table = 'cliente';
 
     protected $fillable = [
         'nome',
@@ -21,7 +20,7 @@ class Cliente extends Model
         'numero',
         'cidade',
         'estado',
-        'fk_empresa',
+        'empresa_id',
     ];
 
     public function validar_cpf($cpf)
@@ -54,11 +53,11 @@ class Cliente extends Model
 
     public function relEmpresa()
     {
-        return $this->hasOne('App\Models\Empresa', 'pk_empresa', 'fk_empresa');
+        return $this->hasOne('App\Models\Empresa', 'id', 'empresa_id');
     }
 
     public function relTelefone()
     {
-        return $this->hasMany('App\Models\Telefone', 'fk_cliente');
+        return $this->hasMany('App\Models\Telefone', 'cliente_id');
     }
 }

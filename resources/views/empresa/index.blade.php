@@ -17,15 +17,15 @@
             <tbody>
                 @foreach ($empresa as $e)
                     <tr>
-                        <th scope="row">{{ $e->pk_empresa }}</th>
+                        <th scope="row">{{ $e->id }}</th>
                         <td>{{ $e->razao_social }}</td>
                         <td>{{ $e->cnpj }}</td>
                         <td>{{ $e->uf }}</td>
                         <td>
-                            <a href="/empresa/{{ $e->pk_empresa }}/edit">
+                            <a href="/empresa/{{ $e->id }}/edit">
                                 <button class="btn btn-primary">Editar</button>
                             </a>
-                            <a href="/empresa/delete/{{ $e->pk_empresa }}">
+                            <a href="/empresa/delete/{{ $e->id }}">
                                 <button class="btn btn-danger">Deletar</button>
                             </a>
                         </td>

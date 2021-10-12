@@ -86,9 +86,19 @@ class EmpresaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EmpresaRequest $request, $id)
     {
-        //
+        $empresa = $this->objEmpresa;
+
+        $cad = $empresa->where(['id' => $id])->update([
+            'razao_social' => $request->razao_social,
+            'cnpj' => $request->cnpj,
+            'uf' => $request->uf,
+        ]);
+
+        if ($cad) {
+            return redirect('/empresa');
+        }
     }
 
     /**

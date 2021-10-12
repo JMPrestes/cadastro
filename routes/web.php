@@ -26,8 +26,10 @@ Route::get('/empresa', [EmpresaController::class, 'index']);
 Route::get('/empresa/create', [EmpresaController::class, 'create']);
 Route::get('/empresa/{id}/edit', [EmpresaController::class, 'edit']);
 Route::post('/empresa', [EmpresaController::class, 'store']);
+Route::put('/empresa/{id}', [EmpresaController::class, 'update']);
 
 Route::get('/telefone/list/{id}', [TelefoneController::class, 'list']);
 Route::get('/telefone/create/{id}', [TelefoneController::class, 'create']);
 Route::get('/telefone/{id}/edit', [TelefoneController::class, 'edit']);
 Route::post('/telefone', [TelefoneController::class, 'store']);
+Route::put('/telefone/{id}', [TelefoneController::class, 'update']);

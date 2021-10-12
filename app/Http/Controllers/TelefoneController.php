@@ -56,11 +56,11 @@ class TelefoneController extends Controller
         $cad = $telefone->create([
             'ddd' => $request->ddd,
             'telefone' => $request->telefone,
-            'fk_cliente' => $request->fk_cliente,
+            'cliente_id' => $request->cliente_id,
         ]);
 
         if ($cad) {
-            return redirect('/telefone/list/' . $request->fk_cliente);
+            return redirect('/telefone/list/' . $request->cliente_id);
         }
     }
 
@@ -96,7 +96,16 @@ class TelefoneController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $telefone = $this->objTelefone;
+
+        $cad = $telefone->where(['id' => $id])->update([
+            'ddd' => $request->ddd,
+            'telefone' => $request->telefone,
+        ]);
+
+        if ($cad) {
+            return redirect('/telefone/list/' . $request->cliente_id);
+        }
     }
 
     /**

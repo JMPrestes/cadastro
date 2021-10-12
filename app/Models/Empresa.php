@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Empresa extends Model
 {
-    protected $table = 'tb_empresa';
-    protected $primaryKey = 'pk_empresa';
+    protected $table = 'empresa';
 
     protected $fillable = [
         'razao_social',
@@ -18,6 +17,6 @@ class Empresa extends Model
 
     public function relCliente()
     {
-        return $this->hasMany('App\Models\Cliente', 'fk_empresa');
+        return $this->hasMany('App\Models\Cliente', 'empresa_id');
     }
 }

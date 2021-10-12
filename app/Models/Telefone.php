@@ -7,17 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Telefone extends Model
 {
-    protected $table = 'tb_telefone';
-    protected $primaryKey = 'pk_telefone';
+    protected $table = 'telefone';
 
     protected $fillable = [
         'ddd',
         'telefone',
-        'fk_cliente',
+        'cliente_id',
     ];
 
     public function relCliente()
     {
-        return $this->hasOne('App\Models\Cliente', 'pk_cliente', 'fk_cliente');
+        return $this->hasOne('App\Models\Cliente', 'id', 'cliente_id');
     }
 }

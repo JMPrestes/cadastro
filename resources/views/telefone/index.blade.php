@@ -18,10 +18,10 @@
                         <td>{{ $c->ddd }}</td>
                         <td>{{ $c->telefone }}</td>
                         <td>
-                            <a href="/telefone/{{ $c->pk_telefone }}/edit">
+                            <a href="/telefone/{{ $c->id }}/edit">
                                 <button class="btn btn-primary">Editar</button>
                             </a>
-                            <a href="/telefone/{{ $c->pk_telefone }}">
+                            <a href="/telefone/{{ $c->id }}">
                                 <button class="btn btn-danger">Deletar</button>
                             </a>
                         </td>
@@ -31,7 +31,7 @@
             </tbody>
         </table>
         <div>
-            <a href="/telefone/create/{{ $cliente->pk_cliente }}">
+            <a href="/telefone/create/{{ $cliente->id }}">
                 <button class="btn btn-success">Novo Contato</button>
             </a>
         </div>

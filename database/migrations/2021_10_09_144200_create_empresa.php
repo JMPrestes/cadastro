@@ -13,8 +13,8 @@ class CreateEmpresa extends Migration
      */
     public function up()
     {
-        Schema::create('tb_empresa', function (Blueprint $table) {
-            $table->increments('pk_empresa');
+        Schema::create('empresa', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('razao_social', 100);
             $table->string('cnpj', 14);
             $table->string('uf', 2);
@@ -29,6 +29,6 @@ class CreateEmpresa extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_empresa');
+        Schema::dropIfExists('empresa');
     }
 }

@@ -40,7 +40,8 @@
         </div>
         <div class="col-6">
             <label for="inputNasc" class="form-label">Data de Nascimento</label>
-            <input type="date" class="form-control limpa" id="inputNasc" name="data_nasc" placeholder="Sua Data de Nascimento" required>
+            <input type="date" class="form-control limpa" id="inputNasc" name="data_nasc"
+                placeholder="Sua Data de Nascimento" required>
         </div>
         <div class="col-6">
             <label for="inputRg" class="form-label">RG</label>
@@ -77,10 +78,10 @@
         </div>
         <div class="col-md-4">
             <label for="inputCompany" class="form-label">Empresa</label>
-            <select class="form-select" id="inputCompany" name="fk_empresa" required>
+            <select class="form-select" id="inputCompany" name="empresa_id" required>
                 <option value="" selected>Empresa em que trabalha...</option>
                 @foreach ($empresa as $e)
-                    <option value="{{ $e->pk_empresa }}">{{ $e->razao_social }} </option>
+                    <option value="{{ $e->id }}">{{ $e->razao_social }} </option>
                 @endforeach
             </select>
         </div>

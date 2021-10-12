@@ -13,8 +13,8 @@ class CreateCliente extends Migration
      */
     public function up()
     {
-        Schema::create('tb_cliente', function (Blueprint $table) {
-            $table->increments('pk_cliente');
+        Schema::create('cliente', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('nome', 100);
             $table->string('cpf_cnpj', 14);
             $table->date('data_nasc')->nullable();
@@ -25,8 +25,8 @@ class CreateCliente extends Migration
             $table->string('numero', 6);
             $table->string('cidade', 50);
             $table->string('estado', 2);
-            $table->integer('fk_empresa')->unsigned();
-            $table->foreign('fk_empresa')->references('pk_empresa')->on('tb_empresa')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('empresa_id')->unsigned();
+            $table->foreign('empresa_id')->references('id')->on('empresa')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -38,6 +38,6 @@ class CreateCliente extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_cliente');
+        Schema::dropIfExists('cliente');
     }
 }
