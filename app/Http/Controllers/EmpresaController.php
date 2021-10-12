@@ -109,6 +109,7 @@ class EmpresaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $del = $this->objEmpresa->destroy($id);
+        return ($del) ? "sim" : "não";
     }
 }

@@ -6,6 +6,8 @@
     <h1 class="text-center">Clientes</h1>
     </hr>
     <div class="text-center ol-8 m-auto">
+        @csrf
+        <input type="hidden" id="direct" name="/">
         <table class="table table-dark">
             <thead>
                 <tr>
@@ -41,13 +43,13 @@
                         <td>{{ $empresa->razao_social }}</td>
                         <td>
                             <a href="/telefone/list/{{ $c->id }}">
-                                <button class="btn btn-dark">Listar Contatos</button>
+                                <button class="btn btn-secondary">Listar Contatos</button>
                         </td>
                         <td>
                             <a href="/cliente/{{ $c->id }}/edit">
                                 <button class="btn btn-primary">Editar</button>
                             </a>
-                            <a href="/cliente/delete/{{ $c->id }}">
+                            <a href="/cliente/{{ $c->id }}" class="js-del">
                                 <button class="btn btn-danger">Deletar</button>
                             </a>
                         </td>

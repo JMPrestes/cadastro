@@ -4,6 +4,8 @@
     <h1 class="text-center">Empresas</h1>
     </hr>
     <div class="text-center col-8 m-auto">
+        @csrf
+        <input type="hidden" id="direct" name="empresa">
         <table class="table table-dark">
             <thead>
                 <tr>
@@ -25,7 +27,7 @@
                             <a href="/empresa/{{ $e->id }}/edit">
                                 <button class="btn btn-primary">Editar</button>
                             </a>
-                            <a href="/empresa/delete/{{ $e->id }}">
+                            <a href="/empresa/{{ $e->id }}" class="js-del">
                                 <button class="btn btn-danger">Deletar</button>
                             </a>
                         </td>
@@ -36,7 +38,7 @@
         </table>
         <div>
             <a href="/empresa/create">
-                <button class="btn btn-success">Nova Empresa</button>
+                <button id="empresa" class="btn btn-success">Nova Empresa</button>
             </a>
         </div>
     </div>

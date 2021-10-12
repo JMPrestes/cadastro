@@ -4,6 +4,8 @@
     <h1 class="text-center">Contatos - Cliente {{ $cliente->nome }}</h1>
     </hr>
     <div class="text-center col-8 m-auto">
+        @csrf
+        <input type="hidden" id="direct" name="{{ $contato[0]->cliente_id }}">
         <table class="table table-dark">
             <thead>
                 <tr>
@@ -21,7 +23,7 @@
                             <a href="/telefone/{{ $c->id }}/edit">
                                 <button class="btn btn-primary">Editar</button>
                             </a>
-                            <a href="/telefone/{{ $c->id }}">
+                            <a href="/telefone/{{ $c->id }}" class="js-del">
                                 <button class="btn btn-danger">Deletar</button>
                             </a>
                         </td>
