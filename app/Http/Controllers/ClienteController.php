@@ -31,7 +31,17 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $cliente = Cliente::paginate(5);
+        if (request()->has('nome') && !empty(request('nome'))) {
+            $cliente = Cliente::where('nome', 'LIKE', '%' . request('nome') . '%')->paginate(5);
+        } elseif (request()->has('cpf_cnpj') && !empty(request('cpf_cnpj'))) {
+            $cliente = Cliente::where('cpf_cnpj', 'LIKE', '%' . request('cpf_cnpj') . '%')->paginate(5);
+        } elseif (request()->has('created_at') && !empty(request('created_at'))) {
+            $cliente = Cliente::where('created_at', 'LIKE', '%' . request('created_at') . '%')->paginate(5);
+        } else {
+            $cliente = Cliente::paginate(5);
+        }
+
+
         return view('cliente.index', compact('cliente'));
     }
 
