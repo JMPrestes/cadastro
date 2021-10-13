@@ -28,7 +28,7 @@ class TelefoneController extends Controller
     public function list($id)
     {
         $cliente = $this->objCliente->find($id);
-        $contato = $this->objCliente->find($id)->relTelefone;
+        $contato = Telefone::where('cliente_id', request('id'))->paginate(5);
         return view('telefone.index', compact('contato', 'cliente'));
     }
 

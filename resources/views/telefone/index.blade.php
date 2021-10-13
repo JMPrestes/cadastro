@@ -36,6 +36,9 @@
                 @endforeach
             </tbody>
         </table>
+        <span>
+            {{ $contato->links() }}
+        </span>
 
     </div>
 @endsection
