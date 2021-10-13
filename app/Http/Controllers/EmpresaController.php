@@ -21,7 +21,7 @@ class EmpresaController extends Controller
      */
     public function index()
     {
-        $empresa = $this->objEmpresa->all();
+        $empresa = Empresa::paginate(5);
         return view('empresa.index', compact('empresa'));
     }
 
@@ -75,7 +75,7 @@ class EmpresaController extends Controller
      */
     public function edit($id)
     {
-        $empresa = $this->objEmpresa->find($id);
+        $empresa = Empresa::paginate(5);
         return view('empresa.edita', compact('empresa'));
     }
 

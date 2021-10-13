@@ -3,6 +3,11 @@
 @section('content')
     <h1 class="text-center">Contatos - Cliente {{ $cliente->nome }}</h1>
     </hr>
+    <div class="text-center ol-8 m-4">
+        <a href="/telefone/create/{{ $cliente->id }}">
+            <button class="btn btn-success">Novo Contato</button>
+        </a>
+    </div>
     <div class="text-center col-8 m-auto">
         @csrf
         <input type="hidden" id="direct" name="{{ $cliente->id }}">
@@ -31,10 +36,6 @@
                 @endforeach
             </tbody>
         </table>
-        <div>
-            <a href="/telefone/create/{{ $cliente->id }}">
-                <button class="btn btn-success">Novo Contato</button>
-            </a>
-        </div>
+
     </div>
 @endsection

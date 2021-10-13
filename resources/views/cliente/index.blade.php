@@ -5,6 +5,11 @@
 @section('content')
     <h1 class="text-center">Clientes</h1>
     </hr>
+    <div class="text-center ol-8 m-4">
+        <a href="/cliente/create">
+            <button class="btn btn-success">Novo Cliente</button>
+        </a>
+    </div>
     <div class="text-center ol-8 m-auto">
         @csrf
         <input type="hidden" id="direct" name="/">
@@ -58,10 +63,9 @@
                 @endforeach
             </tbody>
         </table>
-        <div>
-            <a href="/cliente/create">
-                <button class="btn btn-success mb-8">Novo Cliente</button>
-            </a>
-        </div>
+        <span>
+            {{ $cliente->links() }}
+        </span>
+
     </div>
 @endsection

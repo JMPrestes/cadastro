@@ -3,6 +3,11 @@
 @section('content')
     <h1 class="text-center">Empresas</h1>
     </hr>
+    <div class="text-center ol-8 m-4">
+        <a href="/empresa/create">
+            <button id="empresa" class="btn btn-success">Nova Empresa</button>
+        </a>
+    </div>
     <div class="text-center col-8 m-auto">
         @csrf
         <input type="hidden" id="direct" name="empresa">
@@ -36,10 +41,8 @@
                 @endforeach
             </tbody>
         </table>
-        <div>
-            <a href="/empresa/create">
-                <button id="empresa" class="btn btn-success">Nova Empresa</button>
-            </a>
-        </div>
+        <span>
+            {{ $empresa->links() }}
+        </span>
     </div>
 @endsection

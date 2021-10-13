@@ -31,7 +31,7 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $cliente = $this->objCliente->all();
+        $cliente = Cliente::paginate(5);
         return view('cliente.index', compact('cliente'));
     }
 
