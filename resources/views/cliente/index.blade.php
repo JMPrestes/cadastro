@@ -16,7 +16,6 @@
         <table class="table table-dark">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
                     <th scope="col">Nome</th>
                     <th scope="col">CPF/CNPJ</th>
                     <th scope="col">Nascimento</th>
@@ -36,7 +35,6 @@
                         $empresa = $c->find($c->id)->RelEmpresa;
                     @endphp
                     <tr>
-                        <th scope="row">{{ $c->id }}</th>
                         <td>{{ $c->nome }}</td>
                         <td>{{ $c->cpf_cnpj }}</td>
                         <td>{{ !is_null($c->data_nasc) ? date('d/m/Y', strtotime($c->data_nasc)) : $c->data_nasc }}</td>

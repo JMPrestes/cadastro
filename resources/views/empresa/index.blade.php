@@ -14,7 +14,6 @@
         <table class="table table-dark">
             <thead>
                 <tr>
-                    <th scope=" col">#</th>
                     <th scope="col">Razão Social</th>
                     <th scope="col">CNPJ</th>
                     <th scope="col">UF</th>
@@ -24,7 +23,6 @@
             <tbody>
                 @foreach ($empresa as $e)
                     <tr>
-                        <th scope="row">{{ $e->id }}</th>
                         <td>{{ $e->razao_social }}</td>
                         <td>{{ $e->cnpj }}</td>
                         <td>{{ $e->uf }}</td>
